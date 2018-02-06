@@ -5,21 +5,21 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class PagePlanDeSite extends AbstractContentPage {
+public class PageMentionsLegales extends AbstractContentPage {
 
 	@Drone
 	private WebDriver browser;
 
-	@FindBy(css = "#form5 h3 a")
-	private WebElement lienPromotionEtMobilite;
+	@FindBy(css = "#aUrlCNIL")
+	private WebElement lienCnil;
 
-	public PagePlanDeSite() {
+	public PageMentionsLegales() {
 
 	}
 
 	@Override
 	public boolean estChargee() {
-		return (lienPromotionEtMobilite != null);
+		return (lienCnil != null);
 	}
 
 }

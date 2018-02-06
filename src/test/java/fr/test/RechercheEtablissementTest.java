@@ -1,45 +1,34 @@
 package fr.test;
 
-import org.junit.Assert;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.openqa.selenium.By;
-import org.openqa.selenium.By.ByLinkText;
-
-import fr.gouv.education.sirhen.ct.test.tu.base.ClientMapiTu;
-import fr.gouv.education.sirhen.ct.test.tu.runner.SirhenTestRunnerForMapi;
-import fr.gouv.education.sirhen.ct.test.tu.runner.annotation.ProxyEnv;
-import fr.gouv.education.sirhen.ct.test.tu.runner.annotation.ProxyMode;
-
 /**
  * Classe de tests pour la recherche d'établissements.
  */
 
-@RunWith(SirhenTestRunnerForMapi.class)
-public class RechercheEtablissementTest extends ClientMapiTu {
+// @RunWith(SirhenTestRunnerForMapi.class)
+public class RechercheEtablissementTest /* extends ClientMapiTu */ {
 
-	@Test
-	@ProxyEnv(mode = ProxyMode.PlayMode, testName = "rechercheEtab")
-	public void rechercheEtab() throws Exception {
-		getDriver().get(getBaseUrl() + "ihmr/accueil?numenAgent=06E9513960LXS");
-		waitForExist("site-wrapper");
-		getDriver().findElement(By.id("site-wrapper")).click();
-		getDriver().findElement(ByLinkText.linkText("Plan du site")).click();
-		getDriver().findElement(By.id("form5:mobilite")).click();
-		getDriver().findElement(By.id("fRecherche")).click();
-		getDriver().findElement(By.id("fRecherche:clRechercherEtablissement")).click();
-		getDriver().findElement(By.id("formRechercheEtablissements:peCriteres:psCriteres:typesEtablissement:0")).click();
-		getDriver().findElement(By.id("formRechercheEtablissements:peCriteres:psCriteres:categoriesFinancieres:0")).click();
-		getDriver().findElement(By.id("formRechercheEtablissements:peCriteres:psCriteres:academieSelectionnee_label")).click();
-		getDriver().findElement(By.id("formRechercheEtablissements:peCriteres:psCriteres:academieSelectionnee_29")).click();
-		Thread.sleep(5000);
-		getDriver().findElement(By.id("formRechercheEtablissements:peCriteres:psCriteres:departementSelectionne_label")).click();
-		getDriver().findElement(By.id("formRechercheEtablissements:peCriteres:psCriteres:departementSelectionne_4")).click();
-		getDriver().findElement(By.id("formRechercheEtablissements:peCriteres:psCriteres:validerRecherche")).click();
-		Thread.sleep(5000);
-		Assert.assertTrue(
-			getDriver().findElement(By.id("formRechercheEtablissements:peResultats:psResultats:groupesEtablissements")) != null);
-	}
+	// @Test
+	// @ProxyEnv(mode = ProxyMode.PlayMode, testName = "rechercheEtab")
+	// public void rechercheEtab() throws Exception {
+	// getDriver().get(getBaseUrl() + "ihmr/accueil?numenAgent=06E9513960LXS");
+	// waitForExist("site-wrapper");
+	// getDriver().findElement(By.id("site-wrapper")).click();
+	// getDriver().findElement(ByLinkText.linkText("Plan du site")).click();
+	// getDriver().findElement(By.id("form5:mobilite")).click();
+	// getDriver().findElement(By.id("fRecherche")).click();
+	// getDriver().findElement(By.id("fRecherche:clRechercherEtablissement")).click();
+	// getDriver().findElement(By.id("formRechercheEtablissements:peCriteres:psCriteres:typesEtablissement:0")).click();
+	// getDriver().findElement(By.id("formRechercheEtablissements:peCriteres:psCriteres:categoriesFinancieres:0")).click();
+	// getDriver().findElement(By.id("formRechercheEtablissements:peCriteres:psCriteres:academieSelectionnee_label")).click();
+	// getDriver().findElement(By.id("formRechercheEtablissements:peCriteres:psCriteres:academieSelectionnee_29")).click();
+	// Thread.sleep(5000);
+	// getDriver().findElement(By.id("formRechercheEtablissements:peCriteres:psCriteres:departementSelectionne_label")).click();
+	// getDriver().findElement(By.id("formRechercheEtablissements:peCriteres:psCriteres:departementSelectionne_4")).click();
+	// getDriver().findElement(By.id("formRechercheEtablissements:peCriteres:psCriteres:validerRecherche")).click();
+	// Thread.sleep(5000);
+	// Assert.assertTrue(
+	// getDriver().findElement(By.id("formRechercheEtablissements:peResultats:psResultats:groupesEtablissements")) != null);
+	// }
 
 	// @Test
 	// @ProxyEnv(mode = ProxyMode.RecordMode, testName = "saisieDossier")
