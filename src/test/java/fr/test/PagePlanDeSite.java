@@ -5,7 +5,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class PagePlanDeSite extends AbstractContentPage {
+import fr.utils.SeleniumUtils;
+
+public class PagePlanDeSite extends AbstractPage {
 
 	@Drone
 	private WebDriver browser;
@@ -19,7 +21,7 @@ public class PagePlanDeSite extends AbstractContentPage {
 
 	@Override
 	public boolean estChargee() {
-		return (lienPromotionEtMobilite != null);
+		return SeleniumUtils.isVisible(lienPromotionEtMobilite);
 	}
 
 }

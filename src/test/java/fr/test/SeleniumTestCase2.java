@@ -12,7 +12,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.html5.LocationContext;
 
 @RunWith(Arquillian.class)
-public class SeleniumTestCase {
+public class SeleniumTestCase2 {
 
 	@Drone
 	WebDriver driver;
@@ -21,27 +21,17 @@ public class SeleniumTestCase {
 	LocationContext context;
 
 	@Test
-	public void testNavigationSimple(@InitialPage final PageAccueil pageAccueilInitial) {
-		PageAccueil pageAccueil = pageAccueilInitial;
-		Assert.assertTrue(pageAccueil.estChargee());
-		PagePlanDeSite pagePlanDeSite = pageAccueil.naviguerPagePlanDeSite();
-		Assert.assertTrue(pagePlanDeSite.estChargee());
-		pageAccueil = pagePlanDeSite.naviguerPageAccueil();
-		Assert.assertTrue(pageAccueil.estChargee());
-		PageMentionsLegales pageMentionsLegales = pageAccueil.naviguerPageMentionsLegales();
-		Assert.assertTrue(pageMentionsLegales.estChargee());
-	}
-
-	@Test
-	public void testFermetureBandeauCookiePageAccueil(@InitialPage final PageAccueil pageAccueilInitial) {
+	public void testFermetureBandeauCookiePagePlanDeSite(@InitialPage final PageAccueil pageAccueilInitial) {
 		PageAccueil pageAccueil = pageAccueilInitial;
 		Assert.assertTrue(pageAccueil.estChargee());
 		Assert.assertTrue(pageAccueil.isBandeauCookieVisible());
-		pageAccueil.masqueBandeauCookie();
-		Assert.assertFalse(pageAccueil.isBandeauCookieVisible());
-		Assert.assertTrue(pageAccueil.estChargee());
 		PagePlanDeSite pagePlanDeSite = pageAccueil.naviguerPagePlanDeSite();
 		Assert.assertTrue(pagePlanDeSite.estChargee());
+		Assert.assertTrue(pagePlanDeSite.isBandeauCookieVisible());
+		pagePlanDeSite.masqueBandeauCookie();
 		Assert.assertFalse(pagePlanDeSite.isBandeauCookieVisible());
+		pageAccueil = pagePlanDeSite.naviguerPageAccueil();
+		Assert.assertTrue(pageAccueil.estChargee());
+		Assert.assertFalse(pageAccueil.isBandeauCookieVisible());
 	}
 }

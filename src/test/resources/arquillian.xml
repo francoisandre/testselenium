@@ -5,10 +5,15 @@
         <property name="browser">chrome</property>
         <property name="chromeDriverBinary">C:/Program Files/chromedriver_win32/chromedriver.exe</property>
     </extension> -->
-    
-    <extension qualifier="webdriver">
+     
+   <!--  <extension qualifier="webdriver">
+        <property name="browser">phantomjs</property>
+    </extension> -->
+        
+   <extension qualifier="webdriver">
         <property name="browser">htmlUnit</property>
-    </extension>
+    </extension> 
+    
     
     <extension qualifier="configuration">
     	<property name="contextRoot">http://localhost:8080/mapi-pac-portail-agent/ihmr</property>

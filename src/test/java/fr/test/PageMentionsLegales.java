@@ -5,7 +5,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class PageMentionsLegales extends AbstractContentPage {
+import fr.utils.SeleniumUtils;
+
+public class PageMentionsLegales extends AbstractPage {
 
 	@Drone
 	private WebDriver browser;
@@ -19,7 +21,7 @@ public class PageMentionsLegales extends AbstractContentPage {
 
 	@Override
 	public boolean estChargee() {
-		return (lienCnil != null);
+		return SeleniumUtils.isVisible(lienCnil);
 	}
 
 }

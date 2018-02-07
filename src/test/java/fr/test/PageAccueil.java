@@ -6,8 +6,10 @@ import org.jboss.arquillian.graphene.page.Page;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import fr.utils.SeleniumUtils;
+
 @Location("/accueil?numenAgent=09E9235268KXX")
-public class PageAccueil {
+public class PageAccueil extends AbstractPage {
 
 	@Page
 	private PagePlanDeSite pagePlanDeSite;
@@ -24,25 +26,21 @@ public class PageAccueil {
 	@FindBy(css = "#footer")
 	private WebElement piedDePage;
 
-	@FindBy(css = "div[id=~'ookie']")
-	private WebElement bandeauCookie;
-
 	public PagePlanDeSite naviguerPagePlanDeSite() {
 		Graphene.guardHttp(lienPlanDuSite).click();
 		pagePlanDeSite.setPageAccueil(this);
 		return pagePlanDeSite;
 	}
 
-	public boolean estChargee() {
-		return (piedDePage != null);
-	}
-
-	public boolean bandeauCookie
-
 	public PageMentionsLegales naviguerPageMentionsLegales() {
 		Graphene.guardHttp(lienMentionsLegales).click();
 		pageMentionsLegales.setPageAccueil(this);
 		return pageMentionsLegales;
+	}
+
+	@Override
+	public boolean estChargee() {
+		return SeleniumUtils.isVisible(piedDePage);
 	}
 
 }
